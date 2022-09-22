@@ -1,4 +1,4 @@
-package pl.ecokorporacja.igrzyska2023
+package pl.ecokorporacja.loginandsignup
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

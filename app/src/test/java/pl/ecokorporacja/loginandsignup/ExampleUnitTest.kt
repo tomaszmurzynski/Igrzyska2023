@@ -1,4 +1,4 @@
-package pl.ecokorporacja.igrzyska2023
+package pl.ecokorporacja.loginandsignup
 
 import org.junit.Test
 
