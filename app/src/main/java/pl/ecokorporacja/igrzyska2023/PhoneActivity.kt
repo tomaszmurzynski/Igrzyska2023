@@ -31,8 +31,8 @@ class PhoneActivity : AppCompatActivity() {
         sendOTPBtn.setOnClickListener {
             number = phoneNumberET.text.trim().toString()
             if (number.isNotEmpty()){
-                if (number.length == 10){
-                    number = "+91$number"
+                if (number.length == 9){
+                    number = "+48$number"
                     mProgressBar.visibility = View.VISIBLE
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)       // Phone number to verify

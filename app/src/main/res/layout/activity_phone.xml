@@ -48,7 +48,7 @@
         android:ems="10"
         android:enabled="false"
         android:inputType="number"
-        android:text="  +91"
+        android:text="  +48"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/phoneEditTextNumber"
         app:layout_constraintStart_toStartOf="parent" />
