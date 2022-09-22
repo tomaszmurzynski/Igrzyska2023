@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "710454444892",
+    "project_id": "igrzyska2023-7ae0a",
+    "storage_bucket": "igrzyska2023-7ae0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710454444892:android:27488f2cf81e43c6c83799",
+        "android_client_info": {
+          "package_name": "pl.ecokorporacja.igrzyska2023"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710454444892-q78r9an2a12v3olg7iaje8amf8jchrqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.ecokorporacja.igrzyska2023",
+            "certificate_hash": "7ba9c25e9dcd303876e7c51840a8eac2a1e8fdd9"
+          }
+        },
+        {
+          "client_id": "710454444892-k3c7k89ni9kkl9ikp4jp40fh7r7rotft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk3ZBcWoQg4__cYJIA_5PplpPfZNcdwWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710454444892-k3c7k89ni9kkl9ikp4jp40fh7r7rotft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
