@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pl.ecokorporacja.igrzyska2023">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -10,7 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Igrzyska2023">
         <activity
-            android:name=".SignInActivity"
+            android:name=".OTPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PhoneActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +21,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
+
         </activity>
     </application>
 
