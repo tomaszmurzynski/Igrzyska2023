@@ -2,9 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:igrzyska2023/firebaseAuth/HomePage.dart';
 import 'package:igrzyska2023/firebaseAuth/AuthPage.dart';
-import 'package:igrzyska2023/firebaseAuth/LoginWidget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+
 
 Future main() async{
   WidgetsFlutterBinding.ensureInitialized();
