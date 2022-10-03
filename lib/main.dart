@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:igrzyska2023/firebaseAuth/HomePage.dart';
 import 'package:igrzyska2023/firebaseAuth/AuthPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:igrzyska2023/firebaseAuth/utils.dart';
 
 
 Future main() async{
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   static final String title = 'Igrzyska 2023';
 
   Widget build(BuildContext context) => MaterialApp(
+    scaffoldMessengerKey: Utils.messengerKey,
     navigatorKey: navigatorKey,
     debugShowCheckedModeBanner: false,
     title: title,

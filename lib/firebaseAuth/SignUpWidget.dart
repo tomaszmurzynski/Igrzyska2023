@@ -1,6 +1,9 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:igrzyska2023/firebaseAuth/Utils.dart';
+import 'package:igrzyska2023/main.dart';
 
 
 class SignUpWidget extends StatefulWidget {
@@ -18,7 +21,7 @@ class SignUpWidget extends StatefulWidget {
 class _SignUpWidgetState extends State<SignUpWidget> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+  final formKey = GlobalKey<FormState>();
   @override
   void dispose(){
     emailController.dispose();
@@ -30,11 +33,14 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
     padding: EdgeInsets.all(16),
-    child: Column(
-      mainAxisAlignment:  MainAxisAlignment.center,
-      children: [
+    child: Form(
+      key:  formKey,
+
+      child: Column(
+        mainAxisAlignment:  MainAxisAlignment.center,
+        children: [
         SizedBox(height: 60),
-        FlutterLogo(size: 20),
+        FlutterLogo(size: 50),
         SizedBox(height: 20),
         Text('Hey There, \n Welbome Back',
           textAlign: TextAlign.center,
@@ -42,18 +48,28 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           fontWeight: FontWeight.normal)
           ),
         SizedBox(height: 40),
-        TextField(
+        TextFormField(
           controller: emailController,
           cursorColor: Colors.white,
           textInputAction: TextInputAction.next,
-          decoration: InputDecoration(labelText: 'Email')
+          decoration: InputDecoration(labelText: 'Email'),
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: (email) =>
+          email != null && !EmailValidator.validate(email)
+          ? 'Enter a valid email'
+          : null,
         ),
         SizedBox(height: 4),
-        TextField(
+        TextFormField(
           controller: passwordController,
           textInputAction: TextInputAction.done,
           decoration: InputDecoration(labelText: 'Enter password'),
           obscureText: true,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: (value) =>
+          value != null && value.length < 6
+              ? 'Enter min. 6 characters'
+              : null,
         ),
         SizedBox(height: 20),
         ElevatedButton.icon(
@@ -86,9 +102,18 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             ),
           ],
         ),
-      );
+      ),
+  );
 
   Future signUp() async {
+    final isValid = formKey.currentState!.validate();
+    if(!isValid) return;
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Center(child: CircularProgressIndicator()),
+    );
     try{
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: emailController.text.trim(),
@@ -96,6 +121,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       );
     }on FirebaseAuthException catch (e){
       print(e);
+
+      Utils.showSnackBar(e.message);
     }
+
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }
