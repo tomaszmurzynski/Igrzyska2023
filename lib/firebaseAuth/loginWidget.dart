@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:igrzyska2023/firebaseAuth/Utils.dart';
+import 'package:igrzyska2023/firebaseAuth/forgotPasswordPage.dart';
 import 'package:igrzyska2023/main.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -60,6 +61,20 @@ class _LoginWidgetState extends State<LoginWidget> {
             onPressed: signIn,
             ),
         SizedBox(height: 24),
+        GestureDetector(
+          child: Text(
+            'Forgot Password?',
+            style: TextStyle(
+              decoration: TextDecoration.underline,
+              color: Theme.of(context).colorScheme.secondary,
+              fontSize: 20,
+            ),
+          ),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ForgotPasswordPage(),
+          )),
+        ),
+        SizedBox(height: 16),
         RichText(
             text: TextSpan(
               style: TextStyle(color: Colors.white, fontSize: 20),
@@ -98,3 +113,4 @@ class _LoginWidgetState extends State<LoginWidget> {
   navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }
+
