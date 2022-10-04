@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:igrzyska2023/firebaseAuth/homePage.dart';
 import 'package:igrzyska2023/firebaseAuth/authPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:igrzyska2023/firebaseAuth/utils.dart';
+import 'package:igrzyska2023/firebaseAuth/verifyEmailPage.dart';
 
 
 Future main() async{
@@ -41,7 +41,8 @@ class MainPage extends StatelessWidget {
         }else if(snapshot.hasError){
           return Center(child: Text('Something went wrong!'));
         }else if(snapshot.hasData){
-          return HomePage();
+          return VerifyEmailPage();
+          //return HomePage();
         }else{
           return AuthPage();
         }
