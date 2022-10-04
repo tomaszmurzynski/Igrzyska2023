@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:igrzyska2023/firebaseAuth/Utils.dart';
 import 'package:igrzyska2023/main.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -91,6 +92,8 @@ class _LoginWidgetState extends State<LoginWidget> {
       );
     }on FirebaseAuthException catch (e){
       print(e);
+
+      Utils.showSnackBar(e.message);
     }
   navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
