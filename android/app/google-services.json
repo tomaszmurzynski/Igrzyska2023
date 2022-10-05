@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "978255363145-6roqgvku3q85dcalb8rt57q1m9rri58p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.ecokorporacja.igrzyska2023",
+            "certificate_hash": "c39753ed9fb05df75df0dbf20d163490d9507ff5"
+          }
+        },
+        {
           "client_id": "978255363145-8nu3tprj8b9n818omua2enkoa7r22hfe.apps.googleusercontent.com",
           "client_type": 3
         }
