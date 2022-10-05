@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:igrzyska2023/firebaseAuth/Utils.dart';
 import 'homePage.dart';
@@ -15,6 +14,7 @@ class VerifyEmailPage extends StatefulWidget {
 class _VerifyEmailPageState extends State<VerifyEmailPage> {
   bool isEmailVerified = false;
   Timer? timer;
+  bool canResendEmail = false;
   @override
   void initState(){
     super.initState();
@@ -53,6 +53,10 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
     try {
       final user = FirebaseAuth.instance.currentUser!;
       await user.sendEmailVerification();
+
+      setState(() => canResendEmail = false);
+      await Future.delayed(Duration(seconds: 5));
+      setState(() => canResendEmail = true);
     } catch (e) {
       Utils.showSnackBar(e.toString());
     }
@@ -64,6 +68,42 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
       : Scaffold(
         appBar: AppBar(
           title:  Text('Verify Email'),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'A verificatio email has been sent to your email.',
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 24),
+              ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size.fromHeight(50),
+                  ),
+                  icon: Icon(Icons.email, size: 32),
+                  label: Text(
+                    'Resent Email',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  onPressed: canResendEmail ? sendVerificationEmail : null,
+              ),
+              SizedBox(height: 8),
+              TextButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size.fromHeight(50),
+                ),
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(fontSize: 24),
+                ),
+                onPressed: () => FirebaseAuth.instance.signOut(),
+              ),
+            ],
+          ),
         ),
       );
 }
