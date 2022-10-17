@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:igrzyska2023/firebaseAuth/authPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:igrzyska2023/firebaseAuth/google/provider/googleSignIn.dart';
 import 'package:igrzyska2023/firebaseAuth/utils.dart';
 import 'package:igrzyska2023/firebaseAuth/verifyEmailPage.dart';
+import 'package:provider/provider.dart';
 
 
 Future main() async{
@@ -16,17 +18,22 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   static final String title = 'Igrzyska 2023';
-
-  Widget build(BuildContext context) => MaterialApp(
-    scaffoldMessengerKey: Utils.messengerKey,
-    navigatorKey: navigatorKey,
-    debugShowCheckedModeBanner: false,
-    title: title,
-    theme: ThemeData.dark().copyWith(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-        .copyWith(secondary: Colors.tealAccent),
-    ),
-    home: MainPage(),
+  @override
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+    create: (context) => GoogleSingInProvider(),
+      child: MaterialApp(
+        scaffoldMessengerKey: Utils.messengerKey,
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
+        title: title,
+        theme: ThemeData.dark().copyWith(colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+            .copyWith(secondary: Colors.tealAccent),
+        ),
+        home: MainPage(),
+      ),
   );
+
+
   // This widget is the root of your application.
 }
 
