@@ -1,10 +1,10 @@
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:igrzyska2023/firebaseAuth/auth_page.dart';
+import 'package:igrzyska2023/firebase_auth/auth_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:igrzyska2023/firebaseAuth/utils.dart';
-import 'package:igrzyska2023/firebaseAuth/verify_email_page.dart';
+import 'package:igrzyska2023/firebase_auth/utils.dart';
+import 'package:igrzyska2023/firebase_auth/verify_email_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();

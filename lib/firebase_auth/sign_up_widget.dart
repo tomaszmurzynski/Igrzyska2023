@@ -43,10 +43,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               // FlutterLogo(size: 50),
               const SizedBox(height: 20),
               const Text(
-                  'Zarejestruj się, \n Dołącz do ligi, \n Stwórz swoją drużynę',
+                  'Sign Up, \n Connect to players league , \n Create your own team.',
                   textAlign: TextAlign.center,
                   style:
-                      TextStyle(fontSize: 32, fontWeight: FontWeight.normal)),
+                      TextStyle(fontSize: 24, fontWeight: FontWeight.normal)),
               const SizedBox(height: 40),
               TextFormField(
                 controller: emailController,
