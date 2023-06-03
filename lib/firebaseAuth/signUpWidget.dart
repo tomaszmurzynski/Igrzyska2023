@@ -3,9 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:igrzyska2023/firebaseAuth/Utils.dart';
-import 'package:igrzyska2023/firebaseAuth/google/provider/googleSignIn.dart';
 import 'package:igrzyska2023/main.dart';
-import 'package:provider/provider.dart';
 
 
 class SignUpWidget extends StatefulWidget {
@@ -83,19 +81,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             style: TextStyle(fontSize: 24),
           ),
           onPressed: signUp,
-        ),
-        SizedBox(height: 4),
-        //Button signUp with
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),
-          ),
-          child: Text('Sign Up with...',
-              style: TextStyle(fontSize: 24),
-          ),
-          onPressed: (){
-            final provider = Provider.of<GoogleSingInProvider>(context, listen: false);
-            provider.googleLogin();
-          },
         ),
         SizedBox(height: 24),
         RichText(

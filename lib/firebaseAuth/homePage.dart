@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Welcome Home'),
       ),
       body: Padding(
         padding: EdgeInsets.all(32),
