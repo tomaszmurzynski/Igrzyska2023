@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:igrzyska2023/firebaseAuth/loginWidget.dart';
-import 'package:igrzyska2023/firebaseAuth/signUpWidget.dart';
-
+import 'package:igrzyska2023/firebaseAuth/login_widget.dart';
+import 'package:igrzyska2023/firebaseAuth/sign_up_widget.dart';
 
 class AuthPage extends StatefulWidget {
+  const AuthPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _AuthPageState createState() => _AuthPageState();
 }
 
