@@ -5,6 +5,7 @@ import 'package:igrzyska2023/firebase_auth/auth_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:igrzyska2023/firebase_auth/utils.dart';
 import 'package:igrzyska2023/firebase_auth/verify_email_page.dart';
+import 'package:igrzyska2023/page/profile_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +49,7 @@ class MainPage extends StatelessWidget {
               return const Center(child: Text('Something went wrong!'));
             } else if (snapshot.hasData) {
               return const VerifyEmailPage();
-              //return HomePage();
+              return const ProfilePage();
             } else {
               return const AuthPage();
             }
