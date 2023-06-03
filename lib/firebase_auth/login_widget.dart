@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:igrzyska2023/firebaseAuth/Utils.dart';
+import 'package:igrzyska2023/firebase_auth/utils.dart';
 import 'package:igrzyska2023/firebase_auth/forgot_password_page.dart';
 import 'package:igrzyska2023/main.dart';
 
