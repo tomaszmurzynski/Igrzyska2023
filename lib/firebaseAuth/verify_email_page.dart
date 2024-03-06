@@ -1,14 +1,14 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:igrzyska2023/firebaseAuth/Utils.dart';
-import 'homePage.dart';
+import 'home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class VerifyEmailPage extends StatefulWidget {
-
   @override
- _VerifyEmailPageState createState() => _VerifyEmailPageState();
+  _VerifyEmailPageState createState() => _VerifyEmailPageState();
 }
 
 class _VerifyEmailPageState extends State<VerifyEmailPage> {
@@ -16,23 +16,23 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
   Timer? timer;
   bool canResendEmail = false;
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
     isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
 
-    if(!isEmailVerified){
+    if (!isEmailVerified) {
       sendVerificationEmail();
 
       timer = Timer.periodic(
         Duration(seconds: 3),
-          (_) => checkEmailVerified(),
+        (_) => checkEmailVerified(),
       );
     }
   }
 
   @override
-  void dispose(){
+  void dispose() {
     timer?.cancel();
 
     super.dispose();
@@ -66,21 +66,21 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
   Widget build(BuildContext context) => isEmailVerified
       ? HomePage()
       : Scaffold(
-        appBar: AppBar(
-          title:  Text('Verify Email'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'A verificatio email has been sent to your email.',
-                style: TextStyle(fontSize: 20),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 24),
-              ElevatedButton.icon(
+          appBar: AppBar(
+            title: Text('Verify Email'),
+          ),
+          body: Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A verificatio email has been sent to your email.',
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 24),
+                ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size.fromHeight(50),
                   ),
@@ -90,20 +90,20 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                     style: TextStyle(fontSize: 24),
                   ),
                   onPressed: canResendEmail ? sendVerificationEmail : null,
-              ),
-              SizedBox(height: 8),
-              TextButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size.fromHeight(50),
                 ),
-                child: Text(
-                  'Cancel',
-                  style: TextStyle(fontSize: 24),
+                SizedBox(height: 8),
+                TextButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size.fromHeight(50),
+                  ),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  onPressed: () => FirebaseAuth.instance.signOut(),
                 ),
-                onPressed: () => FirebaseAuth.instance.signOut(),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      );
+        );
 }
